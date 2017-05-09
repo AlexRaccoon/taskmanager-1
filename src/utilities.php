@@ -27,6 +27,9 @@ function loadTask($csvFile){
  * var_dump($tasklist);
  */
 
+function saveTask(){
+
+}
 
 /** fonction pour écrire
     saveTask fopen a

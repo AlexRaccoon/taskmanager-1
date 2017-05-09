@@ -7,53 +7,55 @@
 <body>
     <h1>Gestionnaire de tâches :-)</h1>
     <ul>
-            <!-- TODO: Afficher la liste des tâches via la function loadTask() avec une checkbox pour les supprimer -->
-            <?php
+            <form action="./src/remove.php" method="post">
 
-                for ($i = 0; $i < count($taskList); $i ++){
-                    $taskId = "task" . ($i +1);
-                    echo ('<li><input type="checkbox" id="' . $taskId .'" value="' . $taskId . '">');
 
-                    for ($j = 0; $j < count($taskList[$i]); $j ++){
-                    echo ('<p>' . $taskList[$i][$j] . '</p>'  );
+                <?php
+
+                    for ($i = 0; $i < count($taskList); $i ++){
+                        $taskId = "task" . ($i +1);
+                        echo ('<li><input type="checkbox" id="' . $taskId .'" value="' . $taskId . '">');
+
+                        for ($j = 0; $j < count($taskList[$i]); $j ++){
+                        echo ('<p>' . $taskList[$i][$j] . '</p>'  );
+                        }
+
+                        echo ('</li>');
+
                     }
 
-                    echo ('</li>');
+                ?>
 
-                }
-
-            ?>
-
-        <li>
-            <input type="submit" value="Supprimer"/>
-        </li>
-
+                <li>
+                    <input type="submit" value="Supprimer"/>
+                </li>
+            </form>
 
     </ul>
-    <form class="taches" action="../index.php" method="post">
+    <form class="taches" action="./src/add.php" method="post">
         <fieldset>
             <legend>Information sur la tâche</legend>
             <ul>
-                <li>Titre : <input type="text" name="titre" /></li>
-                <li>Tâche : <textarea name="tache" rows="8" cols="80"></textarea></li>
-                <li>Date de fin :
-                    <select name="jour" size="1">
+                <li><label for="title">Titre : </label><input type="text" name="title" id="title" /></li>
+                <li><label for="task">Tâche : </label><textarea name="task" id="task" rows="8" cols="80"></textarea></li>
+                <li><label>Date de fin :</label>
+                    <select name="day" size="1">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
                     </select> /
-                    <select name="mois" size="1">
+                    <select name="month" size="1">
                         <option>janvier</option>
                         <option>fevrier</option>
                         <option>mars</option>
                     </select> /
-                    <select class="annee" name="1">
+                    <select class="year" name="1">
                         <option>2017</option>
                         <option>2018</option>
                         <option>2019</option>
                     </select>
                 </li>
-                <li>Priorité :
+                <li><label>Priorité :</label>
                     <input type="radio" name="priorite" id="basse" />
                     <label for="basse"> Basse</label>
                     <input type="radio" name="priorite" id="normal"/>
